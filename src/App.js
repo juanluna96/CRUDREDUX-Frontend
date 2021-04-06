@@ -10,17 +10,23 @@ import {
   Switch
 } from 'react-router-dom'
 
+// Redux
+import { Provider } from 'react-redux';
+import store from './store';
+
 function App() {
   return (
     <Router>
-      <Header></Header>
-      <div className="container">
-        <Switch>
-          <Route exact path='/' component={ Productos } />
-          <Route path='/productos/nuevo' component={ NuevoProducto } />
-          <Route path='/productos/editar/:id' component={ EditarProducto } />
-        </Switch>
-      </div>
+      <Provider store={ store }>
+        <Header></Header>
+        <div className="container">
+          <Switch>
+            <Route exact path='/' component={ Productos } />
+            <Route path='/productos/nuevo' component={ NuevoProducto } />
+            <Route path='/productos/editar/:id' component={ EditarProducto } />
+          </Switch>
+        </div>
+      </Provider>
     </Router>
   );
 }
