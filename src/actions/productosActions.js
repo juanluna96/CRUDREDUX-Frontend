@@ -2,8 +2,8 @@ import { AGREGAR_PRODUCTO, AGREGAR_PRODUCTO_ERROR, AGREGAR_PRODUCTO_EXITO } from
 
 // Crear nuevos productos
 
-export function crearNuevoProductoAction() {
+export function crearNuevoProductoAction(producto) {
     return () => {
-        console.log('Desde action');
+        console.log(producto);
     }
 }

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 // Actions de redux
 import { crearNuevoProductoAction } from '../actions/productosActions';
 
 const NuevoProducto = () => {
+    // State del componente
+    const [nombre, setNombre] = useState('');
+    const [precio, setPrecio] = useState(0);
+
     // Utilizar use dispatch y te crea una funcion
     const dispatch = useDispatch();
 
@@ -13,11 +17,17 @@ const NuevoProducto = () => {
         e.preventDefault();
 
         // Validar formulario
+        if (nombre.trim() === '' || precio <= 0) {
+            return;
+        }
 
         // Si no hay errores
 
         // Crear nuevo producto
-        dispatch(crearNuevoProductoAction());
+        dispatch(crearNuevoProductoAction({
+            nombre,
+            precio
+        }));
     }
 
     return (
@@ -30,11 +40,11 @@ const NuevoProducto = () => {
                             <form onSubmit={ submitNuevoProducto }>
                                 <div className="form-group">
                                     <label htmlFor="nombre">Nombre del producto</label>
-                                    <input className="form-control" type="text" name="nombre" />
+                                    <input className="form-control" type="text" name="nombre" value={ nombre } onChange={ e => setNombre(e.target.value) } />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="precio">Precio</label>
-                                    <input className="form-control" type="text" name="precio" />
+                                    <input className="form-control" type="text" name="precio" value={ precio } onChange={ e => setPrecio(Number(e.target.value)) } />
                                 </div>
                                 <button className="btn btn-primary font-weight-bold text-uppercase d-block w-100" type="submit">Agregar</button>
                             </form>
