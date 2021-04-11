@@ -30,8 +30,9 @@ const agregarProductoExito = (producto) => {
 }
 
 // Si hubo un error
-const agregarProductoError = () => {
+const agregarProductoError = (estado) => {
     return ({
-
+        type: AGREGAR_PRODUCTO_ERROR,
+        payload: estado
     })
 }
