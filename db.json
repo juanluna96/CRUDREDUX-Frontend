@@ -29,6 +29,26 @@
       "nombre": "Carne",
       "precio": 200,
       "id": 6
+    },
+    {
+      "nombre": "Prueba",
+      "precio": 200,
+      "id": 7
+    },
+    {
+      "nombre": "Prueba",
+      "precio": 200,
+      "id": 8
+    },
+    {
+      "nombre": "Probando",
+      "precio": 300,
+      "id": 9
+    },
+    {
+      "nombre": "Probando",
+      "precio": 300,
+      "id": 10
     }
   ]
 }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Actions de redux
 import { crearNuevoProductoAction } from '../actions/productosActions';
+import Spinner from './Spinner/Spinner';
 
 const NuevoProducto = () => {
     // State del componente
@@ -51,13 +52,12 @@ const NuevoProducto = () => {
                                     <label htmlFor="precio">Precio</label>
                                     <input className="form-control" type="text" name="precio" value={ precio } onChange={ e => setPrecio(Number(e.target.value)) } />
                                 </div>
-                                <button className="btn btn-primary font-weight-bold text-uppercase d-block w-100" type="submit">Agregar</button>
+                                { cargando ? <Spinner></Spinner> : <button className="btn btn-primary font-weight-bold text-uppercase d-block w-100" type="submit">Agregar</button> }
                             </form>
                         </p>
                     </div>
                 </div>
-                { cargando ? <p>Cargando...</p> : null }
-                { error ? <div className="p-2 mt-4 text-center alert alert-danger" role="alert">Hubo un errors</div> : null }
+                { error ? <div className="p-2 mt-4 text-center alert alert-danger" role="alert">Hubo un error</div> : null }
             </div>
         </div>
     )
