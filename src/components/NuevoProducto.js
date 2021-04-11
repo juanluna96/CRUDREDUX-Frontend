@@ -12,6 +12,11 @@ const NuevoProducto = () => {
     // Utilizar use dispatch y te crea una funcion
     const dispatch = useDispatch();
 
+    // Acceder al state del store
+    const cargando = useSelector(state => state.productos.loading);
+    const error = useSelector(state => state.productos.error);
+    console.log(cargando);
+
     // Cuando el usuario haga submit
     const submitNuevoProducto = (e) => {
         e.preventDefault();
@@ -51,6 +56,8 @@ const NuevoProducto = () => {
                         </p>
                     </div>
                 </div>
+                { cargando ? <p>Cargando...</p> : null }
+                { error ? <div className="p-2 mt-4 text-center alert alert-danger" role="alert">Hubo un errors</div> : null }
             </div>
         </div>
     )
