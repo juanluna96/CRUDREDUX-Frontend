@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { crearNuevoProductoAction } from '../actions/productosActions';
 import Spinner from './Spinner/Spinner';
 
-const NuevoProducto = () => {
+const NuevoProducto = ({ history }) => {
     // State del componente
     const [nombre, setNombre] = useState('');
     const [precio, setPrecio] = useState(0);
@@ -34,6 +34,9 @@ const NuevoProducto = () => {
             nombre,
             precio
         }));
+
+        // Redireccionar al home
+        history.push('/');
     }
 
     return (

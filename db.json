@@ -49,6 +49,16 @@
       "nombre": "Probando",
       "precio": 300,
       "id": 10
+    },
+    {
+      "nombre": "MERN 2",
+      "precio": 2000,
+      "id": 11
+    },
+    {
+      "nombre": "MERN 2",
+      "precio": 2000,
+      "id": 12
     }
   ]
 }
