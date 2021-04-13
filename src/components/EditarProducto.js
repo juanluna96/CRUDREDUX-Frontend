@@ -38,7 +38,8 @@ const EditarProducto = ({ history }) => {
     const onSubmitEditarProducto = (e) => {
         e.preventDefault();
 
-        editarProductoAction();
+        dispatch(editarProductoAction(producto));
+        history.push('/');
     }
 
     return (
@@ -54,7 +55,7 @@ const EditarProducto = ({ history }) => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="precio">Precio</label>
-                                <NumberFormat isNumericString='true' value={ producto.precio } className="form-control" name="precio" id="precio" thousandSeparator={ true } prefix={ 'COP $' } onChange={ onChangeFormulario } />
+                                <NumberFormat value={ producto.precio } className="form-control" name="precio" id="precio" thousandSeparator={ true } prefix={ 'COP $' } onChange={ onChangeFormulario } />
                             </div>
                             <button className="btn btn-primary font-weight-bold text-uppercase d-block w-100" type="submit">Guardar cambios</button>
                         </form>

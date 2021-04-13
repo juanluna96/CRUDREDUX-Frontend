@@ -43,7 +43,7 @@ const Producto = ({ producto }) => {
         <Fragment>
             <tr>
                 <td>{ producto.nombre }</td>
-                <td><NumberFormat className="font-weight-bold text-primary" value={ producto.precio } displayType={ 'text' } thousandSeparator={ true } prefix={ '$' } /></td>
+                <td><NumberFormat className="font-weight-bold text-primary" value={ producto.precio } displayType={ 'text' } thousandSeparator={ true } prefix={ 'COP $' } /></td>
                 <td className="text-center acciones">
                     <button className="mr-2 btn btn-primary" type="button" onClick={ () => redireccionarEdicion(producto) }><FA name="edit" /></button>
                     <button className="btn btn-danger" type="button" onClick={ () => confirmarEliminarProducto(producto.id) }><FA name="trash" /></button>
