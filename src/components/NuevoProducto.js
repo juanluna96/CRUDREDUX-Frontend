@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Actions de redux
 import { crearNuevoProductoAction } from '../actions/productosActions';
+import { mostrarAlerta } from '../actions/alertaActions';
 import Spinner from './Spinner/Spinner';
+import FA from 'react-fontawesome';
 
 const NuevoProducto = ({ history }) => {
     // State del componente
@@ -16,6 +18,7 @@ const NuevoProducto = ({ history }) => {
     // Acceder al state del store
     const cargando = useSelector(state => state.productos.loading);
     const error = useSelector(state => state.productos.error);
+    const alerta = useSelector(state => state.alerta.alerta);
 
     // Cuando el usuario haga submit
     const submitNuevoProducto = (e) => {
@@ -23,6 +26,13 @@ const NuevoProducto = ({ history }) => {
 
         // Validar formulario
         if (nombre.trim() === '' || precio <= 0) {
+            const alerta = {
+                msg: 'Ambos campos son obligatorios',
+                classes: 'alert alert-danger text-center text-uppercase p3 font-weight-bold',
+                icono: 'ban'
+            }
+
+            dispatch(mostrarAlerta(alerta));
             return;
         }
 
@@ -41,6 +51,7 @@ const NuevoProducto = ({ history }) => {
     return (
         <div className="container mt-5 row justify-content-center">
             <div className="col-md-5">
+                { alerta ? <p className={ alerta.classes }><FA name={ alerta.icono } className="mr-1 " style={ { fontSize: '18px' } } />   { alerta.msg }</p> : null }
                 <div className="card">
                     <div className="card-body">
                         <h5 className="mb-4 text-center card-title font-weight-bold text-uppercase">Agregar nuevo producto</h5>

@@ -7,6 +7,8 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
+        case MOSTRAR_ALERTA:
+            return { ...state, alerta: payload }
         default:
             return state
     }
