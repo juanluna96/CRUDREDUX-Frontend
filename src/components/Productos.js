@@ -33,11 +33,11 @@ const Productos = () => {
                     <tr>
                         <th scope="col" className="text-white bg-success">Nombre</th>
                         <th scope="col" className="text-white bg-success">Precio</th>
-                        <th scope="col" className="text-white bg-success">Acciones</th>
+                        <th scope="col" className="text-center text-white bg-success">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    { productos.length === 0 ? (<tr><td colspan="3" className="text-center">No hay productos</td></tr>) : (
+                    { productos.length === 0 ? (<tr><td colSpan="3" className="text-center">No hay productos</td></tr>) : (
                         productos.map((producto) => {
                             return (<Producto key={ producto.id } producto={ producto }></Producto>)
                         })

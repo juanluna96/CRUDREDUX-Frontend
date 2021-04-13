@@ -4,7 +4,8 @@ import {
     AGREGAR_PRODUCTO_EXITO,
     COMENZAR_DESCARGA_PRODUCTOS,
     DESCARGA_PRODUCTOS_EXITOSA,
-    DESCARGA_PRODUCTOS_ERROR
+    DESCARGA_PRODUCTOS_ERROR,
+    OBTENER_PRODUCTO_ELIMINAR
 } from '../types';
 import { clienteAxios } from '../config/axios';
 import Swal from 'sweetalert2';
@@ -99,5 +100,21 @@ const descargaProductosError = (estado) => {
     return ({
         type: DESCARGA_PRODUCTOS_ERROR,
         payload: estado
+    })
+}
+
+// Seleccionar y eliminar el producto
+
+export function borrarProductoAction(id) {
+    return async function (dispatch) {
+        dispatch(obtenerProductoEliminar(id));
+        console.log(id);
+    }
+}
+
+const obtenerProductoEliminar = (id) => {
+    return ({
+        type: OBTENER_PRODUCTO_ELIMINAR,
+        payload: id
     })
 }
