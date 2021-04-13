@@ -16,7 +16,6 @@ const NuevoProducto = ({ history }) => {
     // Acceder al state del store
     const cargando = useSelector(state => state.productos.loading);
     const error = useSelector(state => state.productos.error);
-    console.log(cargando);
 
     // Cuando el usuario haga submit
     const submitNuevoProducto = (e) => {
