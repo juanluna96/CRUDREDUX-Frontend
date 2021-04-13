@@ -6,6 +6,7 @@ import FA from 'react-fontawesome';
 // Redux
 import { useDispatch } from 'react-redux';
 import { borrarProductoAction } from '../actions/productosActions';
+import Swal from 'sweetalert2';
 
 const Producto = ({ producto }) => {
 
@@ -14,8 +15,21 @@ const Producto = ({ producto }) => {
     // Confirmar si desea eliminarlo
     const confirmarEliminarProducto = (id) => {
         // Preguntar al usuario
-        // Pasarlo al action
-        dispatch(borrarProductoAction(id));
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Una vez eliminado el producto no podrás recuperarlo!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#78c2ad',
+            cancelButtonColor: '#ff7851',
+            confirmButtonText: 'Si, borrar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Pasarlo al action
+                dispatch(borrarProductoAction(id));
+            }
+        })
     }
 
     return (
