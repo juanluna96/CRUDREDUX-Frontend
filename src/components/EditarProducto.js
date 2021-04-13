@@ -1,6 +1,7 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
 import { useDispatch, useSelector } from 'react-redux';
+import { editarProductoAction } from '../actions/productosActions';
 
 const EditarProducto = ({ history }) => {
     const dispatch = useDispatch();
@@ -12,13 +13,19 @@ const EditarProducto = ({ history }) => {
         return null;
     }
 
+    const onSubmitEditarProducto = (e) => {
+        e.preventDefault();
+
+        editarProductoAction();
+    }
+
     return (
         <div className="container mt-5 row justify-content-center">
             <div className="col-md-5">
                 <div className="card">
                     <div className="card-body">
                         <h5 className="mb-4 text-center card-title font-weight-bold text-uppercase">Editar producto</h5>
-                        <form>
+                        <form onSubmit={ onSubmitEditarProducto }>
                             <div className="form-group">
                                 <label htmlFor="nombre">Nombre del producto</label>
                                 <input value={ producto.nombre } className="form-control" type="text" name="nombre" />

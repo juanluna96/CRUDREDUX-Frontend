@@ -7,8 +7,9 @@ import {
     DESCARGA_PRODUCTOS_EXITOSA,
     OBTENER_PRODUCTO_ELIMINAR,
     PRODUCTO_ELIMINADO_ERROR,
+    OBTENER_PRODUCTO_EDITAR,
     PRODUCTO_ELIMINADO_EXITO,
-    OBTENER_PRODUCTO_EDITAR
+    COMENZAR_EDICION_PRODUCTO
 } from '../types';
 
 // Cada reducer tiene su propio state
@@ -38,6 +39,8 @@ export default (state = initialState, { type, payload }) => {
         case PRODUCTO_ELIMINADO_EXITO:
             return { ...state, productos: state.productos.filter((producto) => producto.id !== state.productoeliminar), productoeliminar: null }
         case OBTENER_PRODUCTO_EDITAR:
+            return { ...state, productoeditar: payload }
+        case COMENZAR_EDICION_PRODUCTO:
             return { ...state, productoeditar: payload }
         default:
             return state
