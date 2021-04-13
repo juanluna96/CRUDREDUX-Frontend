@@ -5,7 +5,7 @@ import FA from 'react-fontawesome';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { borrarProductoAction } from '../actions/productosActions';
+import { borrarProductoAction, obtenerProductoEditar } from '../actions/productosActions';
 import Swal from 'sweetalert2';
 
 const Producto = ({ producto }) => {
@@ -36,6 +36,7 @@ const Producto = ({ producto }) => {
     // Funcion que redirige de forma programada
     const redireccionarEdicion = (producto) => {
         history.push(`/productos/editar/${producto.id}`);
+        dispatch(obtenerProductoEditar(producto));
     }
 
     return (
