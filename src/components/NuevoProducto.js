@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Actions de redux
 import { crearNuevoProductoAction } from '../actions/productosActions';
-import { mostrarAlerta } from '../actions/alertaActions';
+import { mostrarAlerta, ocultarAlertaAction } from '../actions/alertaActions';
 import Spinner from './Spinner/Spinner';
 import FA from 'react-fontawesome';
 
@@ -37,6 +37,7 @@ const NuevoProducto = ({ history }) => {
         }
 
         // Si no hay errores
+        dispatch(ocultarAlertaAction());
 
         // Crear nuevo producto
         dispatch(crearNuevoProductoAction({

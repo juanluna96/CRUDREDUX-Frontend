@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import NumberFormat from 'react-number-format'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import FA from 'react-fontawesome';
 
 // Redux

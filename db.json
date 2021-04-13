@@ -44,6 +44,11 @@
       "nombre": "MERN 2",
       "precio": 2000,
       "id": 11
+    },
+    {
+      "nombre": "probando",
+      "precio": 2,
+      "id": 12
     }
   ]
 }

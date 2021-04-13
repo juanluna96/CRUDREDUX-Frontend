@@ -23,6 +23,7 @@ const initialState = {
     productoeditar: null
 }
 
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default (state = initialState, { type, payload }) => {
     switch (type) {
         case COMENZAR_EDICION_PRODUCTO:
