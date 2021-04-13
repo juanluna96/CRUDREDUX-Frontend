@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 
 const EditarProducto = () => {
     return (
@@ -14,7 +15,7 @@ const EditarProducto = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="precio">Precio</label>
-                                <input className="form-control" type="text" name="precio" />
+                                <NumberFormat className="form-control" name="precio" id="precio" thousandSeparator={ true } prefix={ 'COP $' } />
                             </div>
                             <button className="btn btn-primary font-weight-bold text-uppercase d-block w-100" type="submit">Guardar cambios</button>
                         </form>

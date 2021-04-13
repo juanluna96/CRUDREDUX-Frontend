@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import NumberFormat from 'react-number-format'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import FA from 'react-fontawesome';
 
 // Redux
@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 const Producto = ({ producto }) => {
 
     const dispatch = useDispatch();
+    const history = useHistory(); //Usar history para la redireccion
 
     // Confirmar si desea eliminarlo
     const confirmarEliminarProducto = (id) => {
@@ -32,13 +33,18 @@ const Producto = ({ producto }) => {
         })
     }
 
+    // Funcion que redirige de forma programada
+    const redireccionarEdicion = (producto) => {
+        history.push(`/productos/editar/${producto.id}`);
+    }
+
     return (
         <Fragment>
             <tr>
                 <td>{ producto.nombre }</td>
                 <td><NumberFormat className="font-weight-bold text-primary" value={ producto.precio } displayType={ 'text' } thousandSeparator={ true } prefix={ '$' } /></td>
                 <td className="text-center acciones">
-                    <Link to={ `/productos/editar/${producto.id}` } className="mr-2 btn btn-primary"><FA name="edit" /></Link>
+                    <button className="mr-2 btn btn-primary" type="button" onClick={ () => redireccionarEdicion(producto) }><FA name="edit" /></button>
                     <button className="btn btn-danger" type="button" onClick={ () => confirmarEliminarProducto(producto.id) }><FA name="trash" /></button>
                 </td>
             </tr>
